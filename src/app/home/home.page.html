@@ -1,12 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Card Scan
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <p>NOTE: THIS ONLY WORKS ON MOBILE!</p>
+  <div>
+    <img [src]="cardImage" />
+  </div>
+  <div>
+    <ion-item>
+      <ion-label>Card Type</ion-label>
+      <ion-input type="text" [(ngModel)]="card.cardType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Card Number</ion-label>
+      <ion-input type="text" [(ngModel)]="card.cardNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Expiry Month</ion-label>
+      <ion-input type="text" [(ngModel)]="card.expiryMonth"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Expiry Year</ion-label>
+      <ion-input type="text" [(ngModel)]="card.expiryYear"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>CVV</ion-label>
+      <ion-input type="text" [(ngModel)]="card.cvv"></ion-input>
+    </ion-item>
+  </div>
+  <ion-fab class="pop-in" [ngClass]="{'pop-out': fabGone}" style="top: 34rem; left: 10rem;">
+      <ion-fab-button (click)="scanCard()" color="dark">
+          <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>

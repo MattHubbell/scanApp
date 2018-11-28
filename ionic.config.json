@@ -1,6 +1,8 @@
 {
   "name": "scanApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "c98f5f43"
 }
