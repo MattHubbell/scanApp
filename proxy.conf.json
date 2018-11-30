@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "https://direct.aacc.org",
+    "secure": true,
+    "pathRewrite": {
+      "^/api": "/webservices"
+    },
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
