@@ -4,5 +4,11 @@
     "cordova": {}
   },
   "type": "angular",
-  "id": "c98f5f43"
+  "id": "c98f5f43",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://devdirect.aacc.org/webservices/CDSintegration.asmx/CustomerInfo3"
+    }
+  ]
 }

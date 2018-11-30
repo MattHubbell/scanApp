@@ -1,29 +1,21 @@
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-
-import { Camera } from '@ionic-native/camera/ngx';
-import { CardIO } from '@ionic-native/card-io/ngx';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
 import { HomePage } from './home.page';
 
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
+    HttpClientModule,
+    RouterModule.forChild([{ path: '', component: HomePage }])
   ],
   declarations: [HomePage],
-  providers: [
-    Camera,
-    CardIO
-  ]
+  providers: [HTTP]
 })
 export class HomePageModule {}

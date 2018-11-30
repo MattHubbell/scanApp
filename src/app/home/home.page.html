@@ -1,41 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Card Scan
-    </ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <p>NOTE: THIS ONLY WORKS ON MOBILE!</p>
-  <div>
-    <img [src]="cardImage" />
+  <ion-item>
+    <ion-input required type="text" placeholder="Person ID" [(ngModel)]="personID"></ion-input>
+  </ion-item>
+  <ion-button (click)="onClick()" [disabled]="isLoading">submit</ion-button>
+  <div *ngFor="let member of memberList">
+    <p>
+      {{ member.ID }} <br>
+      {{ member.FirstName }} {{ member.LastName }} <br>
+      {{ member.Address1 }} <br>
+      {{ member.Address2 }} <br *ngIf="member.Address2">
+      {{ member.City }}<span [hidden]="!member.City">,</span> {{ member.State }} {{ member.Zip }} <br>
+    </p>
   </div>
+  <ion-spinner *ngIf="isLoading" style="top: 300px; left: 76px;"></ion-spinner>
   <div>
-    <ion-item>
-      <ion-label>Card Type</ion-label>
-      <ion-input type="text" [(ngModel)]="card.cardType"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Card Number</ion-label>
-      <ion-input type="text" [(ngModel)]="card.cardNumber"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Expiry Month</ion-label>
-      <ion-input type="text" [(ngModel)]="card.expiryMonth"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Expiry Year</ion-label>
-      <ion-input type="text" [(ngModel)]="card.expiryYear"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>CVV</ion-label>
-      <ion-input type="text" [(ngModel)]="card.cvv"></ion-input>
-    </ion-item>
+    <p>
+      {{ errorMessage }}
+    </p>
+    <p hidden="true">
+      {{ rawData }}
+    </p>
   </div>
-  <ion-fab class="pop-in" [ngClass]="{'pop-out': fabGone}" style="top: 34rem; left: 10rem;">
-      <ion-fab-button (click)="scanCard()" color="dark">
-          <ion-icon name="camera"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
 </ion-content>
